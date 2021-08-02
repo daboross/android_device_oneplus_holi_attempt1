@@ -26,11 +26,28 @@ First download omni-9.0 tree:
 repo init --depth 1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
 ```
 
-Then add these projects to .repo/local_manifests/roomservice.xml (If you don't have it, you can add them to .repo/manifest.xml):
+Then add these projects to .repo/local_manifests/roomservice.xml:
 
 ```xml
-<project name="daboross/android_device_oneplus_holi" path="device/oneplus/fajita" remote="github" revision="android-9.0" />
-<project name="android_external_busybox" path="external/busybox" remote="TeamWin" revision="android-9.0" />
+<project path="device/oneplus/holi"
+  name="daboross/android_device_oneplus_holi"
+  remote="github"
+  revision="android-11.0" />
+<project name="daboross/android_device_oneplus_holi" path="device/oneplus/holi" remote="github" revision="android-11.0" />
+```
+
+If you don't have the file, create the whole file as follows:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github"
+    fetch="https://github.com" />
+  <project path="device/oneplus/holi"
+    name="daboross/android_device_oneplus_holi"
+    remote="github"
+    revision="android-11.0" />
+</manifest>
 ```
 
 Now you can sync your source:
@@ -45,7 +62,7 @@ Finally execute these:
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
-lunch omni_holi-eng
+lunch aosp_holi-eng
 mka adbd recoveryimage
 ```
 
