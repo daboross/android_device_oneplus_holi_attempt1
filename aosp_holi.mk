@@ -17,10 +17,11 @@
 # Release name
 PRODUCT_RELEASE_NAME := holi
 
-#$(call inherit-product, build/target/product/embedded.mk)
+$(call inherit-product, build/target/product/aosp_arm64.mk)
 
 # Inherit from our custom product configuration
 #$(call inherit-product, vendor/holi/config/common.mk)
+#$(call inherit-product, device/oneplus/sdm845-common/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/oneplus/holi/device.mk)
@@ -36,6 +37,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=oneplusnordn2005g \
     BUILD_PRODUCT=OnePlusNordN2005G \
     TARGET_DEVICE=OnePlusNordN2005G
+
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
