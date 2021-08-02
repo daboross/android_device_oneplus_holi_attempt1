@@ -21,7 +21,8 @@ $(call inherit-product, build/target/product/aosp_arm64.mk)
 
 # Inherit from our custom product configuration
 #$(call inherit-product, vendor/holi/config/common.mk)
-#$(call inherit-product, device/oneplus/sdm845-common/common.mk)
+# fingers crossed this is close enough to the sm4350!
+$(call inherit-product, device/oneplus/sm8350-common/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/oneplus/holi/device.mk)
