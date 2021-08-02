@@ -1,6 +1,12 @@
 
 LOCAL_PATH := device/oneplus/holi
 
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Launched with pie
+$(call inherit-product, build/make/target/product/product_launched_with_p.mk)
+
 # define hardware platform
 PRODUCT_PLATFORM := sm4350
 
@@ -15,6 +21,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     bootctrl.sm4350
+
+TARGET_RECOVERTY_DEVICE_MODULES +=
+    android.hidl.base@1.0
+
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \

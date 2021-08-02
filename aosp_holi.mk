@@ -17,7 +17,8 @@
 # Release name
 PRODUCT_RELEASE_NAME := holi
 
-$(call inherit-product, build/target/product/aosp_arm64.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
+#$(call inherit-product, build/target/product/aosp_arm64.mk)
 
 # Inherit from our custom product configuration
 #$(call inherit-product, vendor/holi/config/common.mk)
@@ -28,16 +29,16 @@ $(call inherit-product, build/target/product/aosp_arm64.mk)
 $(call inherit-product, device/oneplus/holi/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := holi
-PRODUCT_NAME := aosp_holi
+PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := aosp_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := OnePlus DE2117
 PRODUCT_MANUFACTURER := OnePlus
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=oneplusnordn2005g \
-    BUILD_PRODUCT=OnePlusNordN2005G \
-    TARGET_DEVICE=OnePlusNordN2005G
+# PRODUCT_BUILD_PROP_OVERRIDES += \
+#     PRODUCT_NAME=oneplusnordn2005g \
+#     BUILD_PRODUCT=OnePlusNordN2005G \
+#     TARGET_DEVICE=OnePlusNordN2005G
 
 
 # HACK: Set vendor patch level
