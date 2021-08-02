@@ -24,7 +24,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Enable update engine sideloading by including the static version of the
 # boot_control HAL and its dependencies.
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+PRODUCT_PACKAGES := \
     bootctrl.sm4350 \
     libgptutils \
     libz \
