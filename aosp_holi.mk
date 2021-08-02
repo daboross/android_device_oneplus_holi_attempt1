@@ -20,7 +20,7 @@ PRODUCT_RELEASE_NAME := holi
 #$(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/holi/config/common.mk)
+#$(call inherit-product, vendor/holi/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/oneplus/holi/device.mk)
