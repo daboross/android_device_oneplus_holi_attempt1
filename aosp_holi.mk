@@ -18,7 +18,7 @@
 PRODUCT_RELEASE_NAME := holi
 
 $(call inherit-product, vendor/twrp/config/common.mk)
-#$(call inherit-product, build/target/product/aosp_arm64.mk)
+$(call inherit-product, build/target/product/aosp_arm64.mk)
 
 # Inherit from our custom product configuration
 #$(call inherit-product, vendor/holi/config/common.mk)
