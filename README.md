@@ -1,43 +1,35 @@
-# Device Tree for OnePlus 6T (fajita)
+# Device Tree for OnePlus Nord N200 5G (holi)
 
-The OnePlus 6T (codenamed _"fajita"_) is a flagship smartphone from OnePlus.
-It was released in Novemeber 2018.
+The OnePlus Nord N200 5G (codenamed _"holi"_) is a budget smartphone from OnePlus.
+It was released June 25th, 2021.
 
 | Basic                   | Spec Sheet                                                                                                                     |
 | -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
-| CPU                     | Octa-core (4x2.8 GHz Kryo 385 Gold & 4x1.7 GHz Kryo 385 Silver)                                                                |
-| Chipset                 | Qualcomm SDM845 Snapdragon 845                                                                                                 |
-| GPU                     | Adreno 630                                                                                                                     |
-| Memory                  | 6/8 GB RAM                                                                                                                     |
-| Shipped Android Version | 9.0                                                                                                                            |
-| Storage                 | 128/256 GB                                                                                                                     |
-| Battery                 | Non-removable Li-Po 3710 mAh battery                                                                                           |
-| Display                 | Optic AMOLED, 1080 x 2340 pixels, 19.5:9 ratio (~403 ppi density)                                                                |
-| Camera (Back)           | Dual: 16 MP (f/1.7, 27mm, 1/2.6", 1.22µm, gyro-EIS, OIS) + 20 MP (16 MP effective, f/1.7, 1/2.8", 1.0µm), PDAF, dual-LED flash |
-| Camera (Front)          | 16 MP (f/2.0, 25mm, 1/3", 1.0µm), gyro-EIS, Auto HDR, 1080p                                                                    |
+| CPU                     | Octa-core (2x2.0 GHz Kryo 460 & 6x1.8 GHz Kryo 460)                                                                            |
+| Chipset                 | Qualcomm SM4350 Snapdragon 480 5G (8 nm)                                                                                       |
+| GPU                     | Adreno 619                                                                                                                     |
+| Memory                  | 4 GB RAM                                                                                                                       |
+| Shipped Android Version | 11.0                                                                                                                           |
+| Storage                 | 64 GB                                                                                                                          |
+| Battery                 | Non-removable Li-Po 5000 mAh battery                                                                                           |
+| Display                 | LTPS IPS LCD, 90Hz, 1080 x 2400 pixels, 20:9 ratio (~405 ppi density)                                                          |
 
-Copyright 2018 - The LineageOS Project.
-
-
+Copyright 2021 - The LineageOS Project.
 
 ## Compile
+
+TODO: verify this!
 
 First download omni-9.0 tree:
 
 ```
-repo init --depth=1 -u https://github.com/omnirom/android.git -b android-9.0
-```
-Then add these string to .repo/manifests/remove.xml
-
-```
-<remove-project name="platform/bootable/recovery" />
+repo init --depth 1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
 ```
 
-Then add these projects to .repo/local_manifests/roomservice.xml (If you don't have it, you can add them to .repo/manifest.xml): 
+Then add these projects to .repo/local_manifests/roomservice.xml (If you don't have it, you can add them to .repo/manifest.xml):
 
 ```xml
-<project name="mauronofrio/android_device_oneplus_fajita" path="device/oneplus/fajita" remote="github" revision="android-9.0" />
-<project name="mauronofrio/android_bootable_recovery" path="bootable/recovery" remote="github" revision="android-9.0" />
+<project name="daboross/android_device_oneplus_holi" path="device/oneplus/fajita" remote="github" revision="android-9.0" />
 <project name="android_external_busybox" path="external/busybox" remote="TeamWin" revision="android-9.0" />
 ```
 
@@ -46,7 +38,6 @@ Now you can sync your source:
 ```
 repo sync
 ```
-Actually i'm using this bootable/recovery: https://github.com/mauronofrio/android_bootable_recovery
 
 Finally execute these:
 
@@ -54,16 +45,25 @@ Finally execute these:
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
-lunch omni_fajita-eng 
-mka adbd recoveryimage 
+lunch omni_holi-eng
+mka adbd recoveryimage
 ```
 
 To test it:
 
 ```
-fastboot boot out/target/product/fajita/recovery.img
+fastboot boot out/target/product/holi/recovery.img
 ```
 
 Kernel Source: https://github.com/pappschlumpf/op6/tree/9.0
+
 ## Credits
+
+This whole thing was originally by @mauronoforio, so big thanks to you!
+
+Original repo: https://github.com/TeamWin/android_device_oneplus_fajita
+
+---
+Original credits for Fajita:
+
 I want to say a big thanks to @twinnfamous
