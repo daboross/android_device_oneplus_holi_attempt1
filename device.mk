@@ -1,8 +1,8 @@
 
-LOCAL_PATH := device/oneplus/fajita
+LOCAL_PATH := device/oneplus/holi
 
 # define hardware platform
-PRODUCT_PLATFORM := sdm845
+PRODUCT_PLATFORM := sm4350
 
 #TEST
 # A/B support
@@ -14,7 +14,7 @@ PRODUCT_PACKAGES += \
     update_engine_sideload
 
 PRODUCT_PACKAGES += \
-    bootctrl.sdm845
+    bootctrl.sm4350
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -25,7 +25,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Enable update engine sideloading by including the static version of the
 # boot_control HAL and its dependencies.
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.sdm845 \
+    bootctrl.sm4350 \
     libgptutils \
     libz \
     libcutils

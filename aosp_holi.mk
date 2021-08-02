@@ -15,27 +15,27 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := fajita
+PRODUCT_RELEASE_NAME := holi
 
 $(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/holi/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/oneplus/fajita/device.mk)
+$(call inherit-product, device/oneplus/holi/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := fajita
-PRODUCT_NAME := omni_fajita
+PRODUCT_DEVICE := holi
+PRODUCT_NAME := aosp_holi
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := OnePlus A6013
+PRODUCT_MODEL := OnePlus DE2117
 PRODUCT_MANUFACTURER := OnePlus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=oneplus6t \
-    BUILD_PRODUCT=OnePlus6T \
-    TARGET_DEVICE=OnePlus6T
+    PRODUCT_NAME=oneplusnordn2005g \
+    BUILD_PRODUCT=OnePlusNordN2005G \
+    TARGET_DEVICE=OnePlusNordN2005G
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \

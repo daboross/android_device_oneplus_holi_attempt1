@@ -40,7 +40,7 @@ ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sdm845
+TARGET_BOOTLOADER_BOARD_NAME := sm4350
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
@@ -49,16 +49,17 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 vi
 BOARD_KERNEL_CMDLINE += skip_override androidboot.fastboot=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-TARGET_PREBUILT_KERNEL := device/oneplus/fajita/prebuilt/Image.gz-dtb
+# TARGET_PREBUILT_KERNEL := device/oneplus/holi/prebuilt/Image.gz-dtb
 
 # Platform
-TARGET_BOARD_PLATFORM := sdm845
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
-QCOM_BOARD_PLATFORMS += sdm845
+TARGET_BOARD_PLATFORM := sm4350
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno619
+QCOM_BOARD_PLATFORMS += sm4350
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
 
+# TODO: are these right?
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2998927360
@@ -76,19 +77,19 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/oneplus/fajita/recovery.wipe
-TARGET_RECOVERY_FSTAB := device/oneplus/fajita/recovery.fstab
+TARGET_RECOVERY_WIPE := device/oneplus/holi/recovery.wipe
+TARGET_RECOVERY_FSTAB := device/oneplus/holi/recovery.fstab
 
-# Workaround for error copying vendor files to recovery ramdisk
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_COPY_OUT_VENDOR := vendor
+# # Workaround for error copying vendor files to recovery ramdisk
+# BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+# TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP specific build flags
-BOARD_HAS_NO_REAL_SDCARD := true
+BOARD_HAS_NO_REAL_SDCARD := false
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
@@ -116,11 +117,32 @@ TARGET_USES_MKE2FS := true
 # with "_a" and "_b" variants in the device. Note that the vendor can add more
 # more partitions to this list for the bootloader and radio.
 AB_OTA_PARTITIONS += \
-    boot \
-    system \
-    vendor \
+    oplusstanvbk \
+    multiimgoem \
+    logo \
+    vendor_boot \
+    featenabler \
+    uefisecapp \
+    core_nhlos \
+    imagefv \
+    dtbo \
     vbmeta \
-    dtbo 
+    qupfw \
+    devcfg \
+    boot \
+    keymaster \
+    dsp \
+    abl \
+    bluetooth \
+    modem \
+    hyp \
+    tz \
+    rpm \
+    engineering_cdt \
+    xbl_config \
+    xbl \
+    vm-system \
+    vbmeta_system
 
 # Encryption
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -132,7 +154,7 @@ BOARD_PROVIDES_GPTUTILS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_LEDS_HAPTICS := true
 USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/oneplus/fajita/installer
+RECOVERY_INSTALLER_PATH := device/oneplus/holi/installer
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_HAS_EDL_MODE := true

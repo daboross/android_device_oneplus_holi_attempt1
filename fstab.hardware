@@ -29,8 +29,8 @@
 
 #device         mount point      fstype        [device2] [length=]
 
-/dev/block/bootdevice/by-name/system       /system               ext4    ro,barrier=1                                                    wait,slotselect
-/dev/block/bootdevice/by-name/op2          /op2            ext4    noatime,nosuid,nodev,barrier=1,data=ordered                     wait,check
+/dev/block/bootdevice/by-name/system       /system         ext4    ro,barrier=1                                                    wait,slotselect
+/dev/block/bootdevice/by-name/opluslog     /op2            ext4    noatime,nosuid,nodev,barrier=1,data=ordered                     wait,check
 /dev/block/bootdevice/by-name/vendor       /vendor         ext4    ro,barrier=1                                                    wait,slotselect
 /dev/block/bootdevice/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc     wait,check,fileencryption=ice:aes-256-cts
 /dev/block/bootdevice/by-name/userdata     /data           f2fs    noatime,nosuid,nodev,discard                                    wait,check,fileencryption=ice:aes-256-cts
